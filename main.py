@@ -1566,10 +1566,11 @@ async def khann(bot: Client, m: Message):
             reply_markup=keyboard,
         )
     editable = await m.reply_text(
-        "➭ 𝗜 𝗔𝗺 𝗔𝗻 𝗞𝗛𝗔𝗡 𝗦𝗜𝗥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗼𝗿 𝗕𝗼𝘁. 𝗧𝗼 𝗨𝘀𝗲 𝗠𝗲 𝗦𝗲𝗻𝗱 𝗬𝗼𝘂𝗿 𝗔𝗨𝗧𝗛 𝗖𝗢𝗗𝗘 𝗜𝗻 𝗥𝗲𝗽𝗹𝘆 𝗧𝗼 𝗧𝗵𝗶𝘀 𝗠𝗲𝘀𝘀𝗮𝗴𝗲.\n\n➭ 𝗦𝗲𝗻𝗱 𝗔𝗨𝗧𝗛 𝗖𝗢𝗗𝗘 𝗜𝗻 𝗧𝗵𝗶𝘀 𝗠𝗮𝗻𝗻𝗲𝗿 𝗢𝘁𝗵𝗲𝗿𝘄𝗶𝘀𝗲 𝗕𝗼𝘁 𝗪𝗶𝗹𝗹 𝗡𝗼𝘁 𝗥𝗲𝘀𝗽𝗼𝗻𝗱\n➭ 𝗦𝗲𝗻𝗱 𝗟𝗶𝗸𝘀 𝗧𝗵𝗶𝘀:- 𝗔𝗨𝗧𝗛 𝗖𝗢𝗗𝗘"
-    )
+        "Send **ID & Password** in this manner otherwise bot will not respond.\n\nSend like this:-  **ID*Password**")
+    rwa_url = "https://api.penpencil.xyz/v1/oauth/token"  
     input1: Message = await bot.listen(editable.chat.id)
-    token = input1.text
+    raw_text = input1.text
+    
     headers = {
         "Host": "admin2.khanglobalstudies.com",
         "authorization": f"Bearer {token}",
